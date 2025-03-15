@@ -1,4 +1,4 @@
-<H3>ENTER YOUR NAME</H3>
+![image](https://github.com/user-attachments/assets/0a09076f-035b-4735-8795-49645ade472e)<H3>ENTER YOUR NAME</H3>
 <H3>ENTER YOUR REGISTER NO.</H3>
 <H3>EX. NO.1</H3>
 <H3>DATE</H3>
@@ -37,11 +37,40 @@ STEP 5:Normalizing the data<BR>
 STEP 6:Splitting the data into test and train<BR>
 
 ##  PROGRAM:
-TYPE YOUR CODE HERE
+~~~
+import numpy as np
+import pandas as pd
+from  sklearn.preprocessing   import MinMaxScaler
+from sklearn.model_selection import train_test_split
+df = pd.read_csv('Crop_recommendation_expanded.csv')
+df.head()
+df.info()
+df.describe()
+df.isnull().sum()
+df.duplicated()
+df  = df.drop(columns = ['label'])
+scalar = MinMaxScaler()
+df1 = pd.DataFrame(scalar.fit_transform(df))
+df1.head()
+X = df1.iloc[:,:-1]
+Y = df1.iloc[:,-1]
+x_train,x_test,y_train,y_test =train_test_split(X, Y, test_size=0.2, random_state=42)
+
+
+~~~
 
 
 ## OUTPUT:
-SHOW YOUR OUTPUT HERE
+![image](https://github.com/user-attachments/assets/a93882d0-8aa6-412f-a8d2-0a63127de6f3)
+
+![image](https://github.com/user-attachments/assets/69d46517-ee02-460b-b8e2-1f8bbeda14e3)
+![image](https://github.com/user-attachments/assets/7866dc55-e5b1-48db-af06-eb19fc88b2b3)
+![image](https://github.com/user-attachments/assets/217b38a2-c5a6-431b-a40d-d4f61db6b91a)
+![image](https://github.com/user-attachments/assets/30c697c2-4839-4ef4-ba7e-5aa679fdf890)
+
+
+
+
 
 
 ## RESULT:
